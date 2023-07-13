@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
-
+find_package(SFML 2.6 COMPONENTS system window graphics REQUIRED)
 set(TS_FILES TOnaves_es_PE.ts)
 
 set(PROJECT_SOURCES
@@ -50,7 +50,10 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-target_link_libraries(TOnaves PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(TOnaves PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+    sfml-system
+    sfml-window
+    sfml-graphics)
 
 set_target_properties(TOnaves PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
