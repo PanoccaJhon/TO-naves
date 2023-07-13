@@ -19,6 +19,7 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        partida.h partida.cpp
         ${TS_FILES}
 )
 
