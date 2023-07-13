@@ -20,6 +20,7 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         partida.h partida.cpp
+        avion.h avion.cpp
         ${TS_FILES}
 )
 
