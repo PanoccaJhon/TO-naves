@@ -8,7 +8,7 @@ class Partida
 public:
     Partida();
     void configurar();
-    void enJuego();
+    int enJuego();
 
 private:
     sf::RenderWindow window;

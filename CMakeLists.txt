@@ -21,6 +21,9 @@ set(PROJECT_SOURCES
         mainwindow.ui
         partida.h partida.cpp
         avion.h avion.cpp
+        avion.h avion.cpp
+        ovni.h ovni.cpp
+        asteroide.h asteroide.cpp
         ${TS_FILES}
 )
 
