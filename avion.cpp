@@ -32,7 +32,13 @@ void Avion::girar(sf::Vector2i mouse)
     setRotation(ang);
 }
 
-void Avion::avanzar(sf::Vector2i &mouse)
+
+void Avion::avanzar(sf::Vector2i mouse)
+{
+
+}
+
+void Avion::disparar(sf::Vector2i mouse)
 {
 
 }

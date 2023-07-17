@@ -8,13 +8,12 @@ class Avion: public sf::Sprite
 public:
     Avion();
     void girar(sf::Vector2i mouse);
-    void avanzar(sf::Vector2i &mouse);
-    void disparar();
+    void avanzar(sf::Vector2i mouse);
+    void disparar(sf::Vector2i mouse);
 private:
 
     std::string image;
     sf::Texture texture;
-    sf::Sprite sprite;
     float velocity;
 
 
