@@ -24,6 +24,7 @@ set(PROJECT_SOURCES
         avion.h avion.cpp
         ovni.h ovni.cpp
         asteroide.h asteroide.cpp
+        imagen.qrc
         ${TS_FILES}
 )
 

@@ -3,7 +3,7 @@
 #include <cmath>
 Avion::Avion()
 {
-    if(!texture.loadFromFile("C:\\Users\\jpanocca\\Downloads\\sprite-avion.png"))
+    if(!texture.loadFromFile("C:\\Users\\Usuario\\Downloads\\sprite-avion.png"))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
         setTexture(texture);

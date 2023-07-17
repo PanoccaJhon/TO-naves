@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Imagenes/FondoNavy.jpg</file>
+        <file>Imagenes/Navy.png</file>
+    </qresource>
+</RCC>
