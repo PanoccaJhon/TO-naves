@@ -1,7 +1,8 @@
 #ifndef PARTIDA_H
 #define PARTIDA_H
 #include "avion.h"
-
+#include "ovni.h"
+#include <vector>
 #include <SFML/Graphics.hpp>
 class Partida
 {
@@ -15,7 +16,9 @@ private:
     bool estado;
     int puntaje;
     int nivel;
+    //std::vector<sf::Sprite> sprites;
     Avion avion;
+    Ovni emg;
     //Agregar mas cosas
 };
 

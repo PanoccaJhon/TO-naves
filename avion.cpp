@@ -4,7 +4,8 @@
 #include <iostream>
 Avion::Avion()
 {
-    if(!texture.loadFromFile("C:/Users/jpanocca/Downloads/sprite-avion.png"))
+    this->image = "C:/Users/jpanocca/Downloads/sprite-avion.png";
+    if(!texture.loadFromFile(image))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
         setTexture(texture);

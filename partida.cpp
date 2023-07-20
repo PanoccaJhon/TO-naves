@@ -13,14 +13,13 @@ void Partida::configurar()
     this->puntaje = 13;
     this->nivel = 1;
     window.setFramerateLimit(80);
-    Avion avion;
+
 }
 int Partida::enJuego()
 {
     while(window.isOpen())
     {
         window.clear(sf::Color(55,55,72));
-
         if(avion.movimiento)
             avion.avanzar();
 
@@ -40,6 +39,7 @@ int Partida::enJuego()
                 window.close();
         }
         window.draw(avion);
+        window.draw(emg);
         window.display();
     }
     return puntaje;

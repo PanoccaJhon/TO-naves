@@ -1,6 +1,5 @@
 #ifndef AVION_H
 #define AVION_H
-
 #include <string>
 #include <SFML/Graphics.hpp>
 class Avion: public sf::Sprite
@@ -12,7 +11,6 @@ public:
     void disparar(sf::Vector2i mouse);
     bool movimiento;
 private:
-
     std::string image;
     sf::Texture texture;
     float velocity;
