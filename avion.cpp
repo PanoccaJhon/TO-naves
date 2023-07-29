@@ -1,10 +1,11 @@
 #include "avion.h"
+#include "Disparar.h"
 #include <iostream>
 #include <cmath>
 #include <iostream>
 Avion::Avion()
 {
-    this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/sprite-avion.png";
+    this->image = "C:/Users/jcarl/Downloads/images/sprite-avion.png";
     if(!texture.loadFromFile(image))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
@@ -56,9 +57,8 @@ void Avion::avanzar()
         this->movimiento = false;
 }
 
-void Avion::disparar(sf::Vector2i mouse)
+void Avion::disparar(sf::Vector2f mouse)
 {
-    //TO-DO
 }
 float Avion::moveY(float X){
     return F.m*X+F.b;

@@ -9,7 +9,7 @@ public:
     Avion();
     void girar(sf::Vector2i mouse) override;
     void avanzar() override;
-    void disparar(sf::Vector2i mouse) override;
+    void disparar(sf::Vector2f mouse);
 private:
     std::string image;
     sf::Texture texture;
