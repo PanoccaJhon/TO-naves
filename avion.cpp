@@ -4,7 +4,7 @@
 #include <iostream>
 Avion::Avion()
 {
-    this->image = "C:/Users/jpanocca/Downloads/sprite-avion.png";
+    this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/sprite-avion.png";
     if(!texture.loadFromFile(image))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
@@ -13,7 +13,7 @@ Avion::Avion()
         setPosition(sf::Vector2f(500.f,400.f));
         setOrigin(sf::Vector2f(547/2.f,539/2.f));
         setRotation(90.f);
-        this->velocity = 5.f;
+        this->velocity = 2.f;
         this->movimiento = false;
         this->F.m = 0.f;
         this->F.b = 0.f;
@@ -58,12 +58,23 @@ void Avion::avanzar()
 
 void Avion::disparar(sf::Vector2i mouse)
 {
-
+    //TO-DO
 }
-/*
-sf::RenderWindow &window;
-std::string image;
-sf::Texture texture;
-sf::Sprite sprite;
-float velocity;
-*/
+float Avion::moveY(float X){
+    return F.m*X+F.b;
+}
+float Avion::moveX(float Y){
+    return (Y-F.b)/F.m;
+}
+float Avion::inX(){
+    if(objetivo.x<getPosition().x)
+        return getPosition().x-velocity;
+    else
+        return getPosition().x+velocity;
+}
+float Avion::inY(){
+    if(objetivo.y<getPosition().y*(-1))
+        return getPosition().y*(-1)-velocity;
+    else
+        return getPosition().y*(-1)+velocity;
+}

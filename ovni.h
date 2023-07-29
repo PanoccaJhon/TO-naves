@@ -1,9 +1,9 @@
 #ifndef OVNI_H
 #define OVNI_H
-
+#include "mysprite.h"
 #include <string>
 #include <SFML/Graphics.hpp>
-class Ovni: public sf::Sprite
+class Ovni: public MySprite//sf::Sprite
 {
 public:
     Ovni();

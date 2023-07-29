@@ -5,9 +5,12 @@
 class MySprite: public sf::Sprite
 {
 public:
-    virtual void girar(sf::Vector2i mouse)=0;
-    virtual void avanzar()=0;
-    virtual void disparar(sf::Vector2i mouse)=0;
-    bool movimiento;
+    virtual void girar(sf::Vector2i mouse) {}
+    virtual void avanzar() {}
+    virtual void disparar(sf::Vector2i mouse) {}
+    bool movimiento = false;
+    virtual void moverse() {}
+    virtual void setObjetivo(sf::Vector2f) {}
+    virtual bool withobj() { return NULL;}
 };
 #endif // MYSPRITE_H

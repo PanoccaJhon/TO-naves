@@ -1,15 +1,15 @@
 #ifndef AVION_H
 #define AVION_H
 #include <string>
+#include "mysprite.h"
 #include <SFML/Graphics.hpp>
-class Avion: public sf::Sprite
+class Avion: public MySprite//sf::Sprite
 {
 public:
     Avion();
-    void girar(sf::Vector2i mouse);
-    void avanzar();
-    void disparar(sf::Vector2i mouse);
-    bool movimiento;
+    void girar(sf::Vector2i mouse) override;
+    void avanzar() override;
+    void disparar(sf::Vector2i mouse) override;
 private:
     std::string image;
     sf::Texture texture;
@@ -20,24 +20,11 @@ private:
         float b;
         float d;
     }F;
-    float moveY(float X){
-        return F.m*X+F.b;
-    }
-    float moveX(float Y){
-        return (Y-F.b)/F.m;
-    }
-    float inX(){
-        if(objetivo.x<getPosition().x)
-            return getPosition().x-velocity;
-        else
-            return getPosition().x+velocity;
-    }
-    float inY(){
-        if(objetivo.y<getPosition().y*(-1))
-            return getPosition().y*(-1)-velocity;
-        else
-            return getPosition().y*(-1)+velocity;
-    }
+    float moveY(float X);
+    float moveX(float Y);
+    float inX();
+    float inY();
+
 };
 
 #endif // AVION_H
