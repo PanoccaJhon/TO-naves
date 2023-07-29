@@ -56,7 +56,6 @@ float Asteroide::inX(){
 }
 float Asteroide::inY(){
     return getPosition().y*(-1)+cambioEje*velocity;
-
 }
 bool Asteroide::withobj(){
     return setObj;

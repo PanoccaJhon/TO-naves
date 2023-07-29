@@ -13,7 +13,7 @@ Avion::Avion()
         setPosition(sf::Vector2f(500.f,400.f));
         setOrigin(sf::Vector2f(547/2.f,539/2.f));
         setRotation(90.f);
-        this->velocity = 2.f;
+        this->velocity = 5.f;
         this->movimiento = false;
         this->F.m = 0.f;
         this->F.b = 0.f;

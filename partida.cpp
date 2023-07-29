@@ -12,13 +12,13 @@ void Partida::configurar()
     this->estado = true;
     this->puntaje = 13;
     this->nivel = 1;
-    window.setFramerateLimit(80);
+    window.setFramerateLimit(40);
     sprites.push_back(new Avion());
-    sprites.push_back(new Asteroide());
 }
 int Partida::enJuego()
 {
-    sf::Clock clock;
+    sf::Clock clockAste;
+    sf::Clock clockOvni;
     while(window.isOpen())
     {
         window.clear(sf::Color(55,55,72));
@@ -27,22 +27,32 @@ int Partida::enJuego()
         if(sprites[0]->movimiento)
             sprites[0]->avanzar();
         //Generar Asteorides
-        if(clock.getElapsedTime().asSeconds()>1.f){
+        if(clockAste.getElapsedTime().asSeconds()>1.3f){
             sprites.push_back(new Asteroide());
             sprites.back()->setObjetivo(sprites[0]->getPosition());
-            clock.restart();
+            clockAste.restart();
+        }
+        //Generar Ovnis
+        if(clockOvni.getElapsedTime().asSeconds()>2.3f){
+            sprites.push_back(new Ovni());
+            sprites.back()->setObjetivo(sprites[0]->getPosition());
+            clockOvni.restart();
         }
         //Eventos
         sf::Event event;
         while (window.pollEvent(event))
         {
 
-            //Click mouse boton izquierdo
+            //Click mouse boton izquierdo -- MOVERSE
             if(event.type == sf::Event::MouseButtonPressed &&sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
                 //Girar Avion hacia click de mouse
                 sprites[0]->girar(sf::Mouse::getPosition(window));
             }
+
+            //Click tecla Space -- DISPARAR
+
+
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
