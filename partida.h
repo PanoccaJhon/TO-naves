@@ -25,6 +25,7 @@ private:
     Asteroide aste;
     std::vector<MySprite*> sprites;
     //Agregar mas cosas
+    Disparar disparador;
 };
 
 #endif // PARTIDA_H

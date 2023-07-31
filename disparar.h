@@ -12,7 +12,7 @@ private:
 
     sf::Texture texture_bala;
     sf::Sprite bala;
-    sf::Vector2f velocity;
+    //sf::Vector2f velocity;
     sf::Keyboard::Key tecla;
     std::vector<sf::Sprite> balas;
     std::vector<sf::Vector2f> velocities;

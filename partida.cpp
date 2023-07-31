@@ -38,7 +38,7 @@ int Partida::enJuego()
             sprites.back()->setObjetivo(sprites[0]->getPosition());
             clockOvni.restart();
         }
-        Disparar disparador;
+
         //Eventos
         sf::Event event;
         while (window.pollEvent(event))
