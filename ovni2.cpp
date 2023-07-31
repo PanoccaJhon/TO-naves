@@ -1,8 +1,8 @@
-#include "ovni.h"
+#include "ovni2.h"
 #include <iostream>
-Ovni::Ovni()
+Ovni2::Ovni2()
 {
-    this->image = "C:/Users/Miguel/Desktop/Naves/Naves/Imagenes/enemigo.png";
+    this->image = "C:/Users/Miguel/Desktop/Naves/Naves/Imagenes/enemigoInfo.png";
     if(!texture.loadFromFile(image))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
@@ -15,11 +15,11 @@ Ovni::Ovni()
         cambioEje = 1;
     }
 }
-sf::Vector2f Ovni::inicio(){
+sf::Vector2f Ovni2::inicio(){
     float y =std::rand()%(768);
     return sf::Vector2f(-50,y);
 }
-void Ovni::setObjetivo(sf::Vector2f avion){
+void Ovni2::setObjetivo(sf::Vector2f avion){
     //PREPARAR PARA MOVIMIENTO
     objetivo = sf::Vector2f(avion.x,avion.y*(-1));
     sf::Vector2f sc = objetivo - sf::Vector2f(getPosition().x,getPosition().y*(-1));
@@ -36,22 +36,22 @@ void Ovni::setObjetivo(sf::Vector2f avion){
 
 }
 
-void Ovni::moverse(){
+void Ovni2::moverse(){
     if(std::abs(F.m)>1) //verifica en cual eje avanzar
         setPosition(moveX(inY()),inY()*(-1));//Cambia en X
     else
         setPosition(inX(),moveY(inX())*(-1));//Cambia en Y
 }
 
-float Ovni::moveY(float X){
+float Ovni2::moveY(float X){
     return F.m*X+F.b;
 }
-float Ovni::moveX(float Y){
+float Ovni2::moveX(float Y){
     return (Y-F.b)/F.m;
 }
-float Ovni::inX(){
+float Ovni2::inX(){
     return getPosition().x + cambioEje*velocity;
 }
-float Ovni::inY(){
+float Ovni2::inY(){
     return getPosition().y*(-1)+cambioEje*velocity;
 }

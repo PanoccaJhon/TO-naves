@@ -3,6 +3,7 @@
 #include "avion.h"
 #include "Disparar.h"
 #include "ovni.h"
+#include "ovni2.h"
 #include "asteroide.h"
 #include "mysprite.h"
 #include <vector>
@@ -22,6 +23,7 @@ private:
     //std::vector<sf::Sprite> sprites;
     Avion avion;
     Ovni emg;
+    Ovni2 infoemg;
     Asteroide aste;
     std::vector<MySprite*> sprites;
     //Agregar mas cosas

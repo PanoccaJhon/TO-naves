@@ -4,7 +4,7 @@ Disparar::Disparar(sf::Keyboard::Key teclado): tecla(teclado){}
 
 Disparar::Disparar(){
 
-    if (!texture_bala.loadFromFile("C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/misil.png")) {
+    if (!texture_bala.loadFromFile("C:/Users/Miguel/Desktop/Naves/Naves/Imagenes/misil.png")) {
         std::cout << "No existe objeto"<<std::endl;
     }
 

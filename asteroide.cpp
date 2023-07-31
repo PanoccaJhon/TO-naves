@@ -2,7 +2,7 @@
 #include <iostream>
 Asteroide::Asteroide()
 {
-    this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/asteroide.png";
+    this->image = "C:/Users/Miguel/Desktop/Naves/Naves/Imagenes/asteroide.png";
     if(!texture.loadFromFile(image))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{

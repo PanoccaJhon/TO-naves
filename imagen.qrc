@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>Imagenes/FondoNavy.jpg</file>
         <file>Imagenes/Navy.png</file>
+        <file>Imagenes/info1.png</file>
+        <file>Imagenes/info2.png</file>
     </qresource>
 </RCC>

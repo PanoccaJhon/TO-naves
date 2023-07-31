@@ -20,6 +20,7 @@ int Partida::enJuego()
 {
     sf::Clock clockAste;
     sf::Clock clockOvni;
+    sf::Clock clockOvni2;
     while(window.isOpen())
     {
         window.clear(sf::Color(55,55,72));
@@ -38,7 +39,12 @@ int Partida::enJuego()
             sprites.back()->setObjetivo(sprites[0]->getPosition());
             clockOvni.restart();
         }
-
+        //Generar Ovnis2
+        if(clockOvni2.getElapsedTime().asSeconds()>15.3f){
+            sprites.push_back(new Ovni2());
+            sprites.back()->setObjetivo(sprites[0]->getPosition());
+            clockOvni2.restart();
+        }
         //Eventos
         sf::Event event;
         while (window.pollEvent(event))

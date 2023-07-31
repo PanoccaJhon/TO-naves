@@ -27,6 +27,14 @@ set(PROJECT_SOURCES
         disparar.h disparar.cpp
         mysprite.h
         imagen.qrc
+        info.cpp
+        info.ui
+        info.h
+        info2.cpp
+        info2.ui
+        info2.h
+        ovni2.cpp
+        ovni2.h
         ${TS_FILES}
 )
 

@@ -6,7 +6,7 @@
 #include <SFML/Window.hpp>
 Avion::Avion()
 {
-    this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/sprite-avion.png";
+    this->image = "C:/Users/Miguel/Desktop/Naves/Naves/Imagenes/sprite-avion.png";
     if(!texture.loadFromFile(image))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
