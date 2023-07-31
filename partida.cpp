@@ -3,6 +3,11 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
+#include "info.h"
+#include "info2.h"
+#include "qapplication.h"
+#include <QScreen>
+
 Partida::Partida()
 {
     window.create(sf::VideoMode(1024, 768), "My window");
@@ -70,6 +75,60 @@ int Partida::enJuego()
                 window.close();
         }
         disparador.mover();
+
+        // Detección de colisiones entre las balas y los asteroides/UFOs
+            const std::vector<sf::Sprite>& balas = disparador.getBalas();
+        for (size_t i = 0; i < balas.size(); i++)
+        {
+            sf::FloatRect balaBounds = balas[i].getGlobalBounds();
+            bool colision = false; // Variable para indicar si hay colisión
+
+            // Colisión con asteroides
+            for (size_t j = 1; j < sprites.size(); j++)
+            {
+                sf::FloatRect asteroideBounds = sprites[j]->getGlobalBounds();
+                if (balaBounds.intersects(asteroideBounds))
+                {
+                    // // falta implementar la puntuación,
+                    colision = true;
+
+                    // Cuando un objeto ovni2 es destruido aparece una pantalla con infografia
+                    Ovni2* ovni2_ptr = dynamic_cast<Ovni2*>(sprites[j]);
+                    if(ovni2_ptr !=nullptr){
+
+                        int randomNum = std::rand() % 2;
+
+                        if (randomNum == 0)
+                        {
+                            Info i;
+                            i.show();
+                            QCoreApplication::processEvents();
+                            sf::sleep(sf::milliseconds(5000));
+                            i.hide();
+                             QCoreApplication::processEvents();
+                        }
+                        else
+                        {
+                            info2 i2;
+                            i2.show();
+                            QCoreApplication::processEvents();
+                            sf::sleep(sf::milliseconds(5000));
+                            i2.hide();
+                             QCoreApplication::processEvents();
+                        }
+
+                    }
+                    if(colision){
+                    sprites.erase(sprites.begin() + j);
+                    break; // Exit the inner loop since the bullet can't hit multiple objects at once
+                    }
+                }
+            }
+            if (colision)
+            {
+                disparador.marcarBalaEliminada(i);
+            }
+        }
         disparador.dibujar(window);
         //Mover Meteoros y Naves enemigas
         for(auto i = 1; i<sprites.size();i++){

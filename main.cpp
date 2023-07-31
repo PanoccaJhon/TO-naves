@@ -20,16 +20,5 @@ int main(int argc, char *argv[])
     }
     MainWindow w;
     w.show();
-    Info i;
-    QRect screenrect = a.primaryScreen()->geometry();
-    i.move(screenrect.top(), screenrect.left());
-    i.show();
-    //i.hide();
-
-    Info i2;
-
-    i2.move(screenrect.top(), screenrect.left());
-    i2.show();
-    i2.hide();
     return a.exec();
 }

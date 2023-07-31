@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>717</width>
-    <height>458</height>
+    <width>883</width>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,8 +21,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>711</width>
-     <height>451</height>
+     <width>881</width>
+     <height>591</height>
     </rect>
    </property>
    <property name="text">
@@ -35,10 +35,10 @@
     <bool>true</bool>
    </property>
    <property name="wordWrap">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="openExternalLinks">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
  </widget>
