@@ -3,13 +3,14 @@
 #include <string>
 #include "mysprite.h"
 #include <SFML/Graphics.hpp>
+#include "Disparar.h"
 class Avion: public MySprite//sf::Sprite
 {
 public:
     Avion();
     void girar(sf::Vector2i mouse) override;
     void avanzar() override;
-    void disparar(sf::Vector2f mouse);
+    void disparar();
 private:
     std::string image;
     sf::Texture texture;
@@ -24,6 +25,8 @@ private:
     float moveX(float Y);
     float inX();
     float inY();
+
+    Disparar disparador;
 
 };
 

@@ -1,6 +1,7 @@
 #ifndef PARTIDA_H
 #define PARTIDA_H
 #include "avion.h"
+#include "Disparar.h"
 #include "ovni.h"
 #include "asteroide.h"
 #include "mysprite.h"

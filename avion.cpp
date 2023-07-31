@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cmath>
 #include <iostream>
+#include <SFML/Window.hpp>
 Avion::Avion()
 {
     this->image = "C:/Users/jcarl/Downloads/images/sprite-avion.png";
@@ -57,8 +58,11 @@ void Avion::avanzar()
         this->movimiento = false;
 }
 
-void Avion::disparar(sf::Vector2f mouse)
+void Avion::disparar()
 {
+        float angulo = getRotation();
+        disparador.disparar(getPosition(), angulo);
+
 }
 float Avion::moveY(float X){
     return F.m*X+F.b;

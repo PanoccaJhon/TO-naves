@@ -37,4 +37,15 @@ void Disparar::dibujar(sf::RenderWindow& window) {
         window.draw(bala);
     }
 }
+/*
+    void mover() {
+        for(size_t i = 0; i <balas.size(); i++){
+            balas[i].move(velocities[i]);
+        }
+    }
+    void dibujar(sf::RenderWindow& window) {
+        for(const auto& bala : balas){
+            window.draw(bala);
+        }
+    }*/
 

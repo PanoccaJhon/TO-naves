@@ -1,4 +1,5 @@
 #include "partida.h"
+#include "Disparar.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
@@ -22,7 +23,6 @@ int Partida::enJuego()
     while(window.isOpen())
     {
         window.clear(sf::Color(55,55,72));
-
         //Movimiento de Avion
         if(sprites[0]->movimiento)
             sprites[0]->avanzar();
@@ -38,10 +38,16 @@ int Partida::enJuego()
             sprites.back()->setObjetivo(sprites[0]->getPosition());
             clockOvni.restart();
         }
+        Disparar disparador;
         //Eventos
         sf::Event event;
         while (window.pollEvent(event))
         {
+
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
+                //sprites[0]->disparar();
+                disparador.disparar(sprites[0]->getPosition(), sprites[0]->getRotation());
+            }
 
             //Click mouse boton izquierdo -- MOVERSE
             if(event.type == sf::Event::MouseButtonPressed &&sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -57,11 +63,12 @@ int Partida::enJuego()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        disparador.mover();
+        disparador.dibujar(window);
         //Mover Meteoros y Naves enemigas
         for(auto i = 1; i<sprites.size();i++){
             sprites[i]->moverse();
         }
-
         //Renderizar Sprites
         for(auto item: sprites){
             window.draw(*item);
