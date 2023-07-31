@@ -5,17 +5,6 @@
 
 Ovni::Ovni()
 {
-    /*
-#include <QImage>
-#include <QPixmap>
-
-    QPixmap pixmap(":/Imagenes/sprite-avion.png");
-    QImage image = pixmap.toImage();
-    QString temFi = "tem_Navy.png";
-    image.save(temFi);
-
-    if(!texture.loadFromFile(temFi.toStdString()))*/
-
     QPixmap pixmap(":/Imagenes/enemigo.png");
     QImage image = pixmap.toImage();
     QString temFi = "tem_enemigo.png";
