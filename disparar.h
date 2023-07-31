@@ -16,6 +16,7 @@ private:
     sf::Keyboard::Key tecla;
     std::vector<sf::Sprite> balas;
     std::vector<sf::Vector2f> velocities;
+    std::vector<size_t> balasEliminadas;
 
 public:
     //constructores
@@ -27,6 +28,10 @@ public:
     void disparar(sf::Vector2f posicion, float angle);
     void mover();
     void dibujar(sf::RenderWindow& window);
+    const std::vector<sf::Sprite>& getBalas() const;
+    void eliminarBala(size_t indice);
+    void marcarBalaEliminada(size_t indice);
+    void eliminarBalasMarcadas();
 };
 
 #endif // DISPARAR_H
