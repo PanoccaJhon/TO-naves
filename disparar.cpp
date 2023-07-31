@@ -1,10 +1,18 @@
 #include "Disparar.h"
 #include <iostream>
+#include <QImage>
+#include <QPixmap>
+
 Disparar::Disparar(sf::Keyboard::Key teclado): tecla(teclado){}
 
 Disparar::Disparar(){
 
-    if (!texture_bala.loadFromFile("C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/misil.png")) {
+    QPixmap pixmap(":/Imagenes/misil.png");
+    QImage image = pixmap.toImage();
+    QString temFi = "tem_misil.png";
+    image.save(temFi);
+
+    if (!texture_bala.loadFromFile(temFi.toStdString())) {
         std::cout << "No existe objeto"<<std::endl;
     }
 
