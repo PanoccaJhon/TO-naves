@@ -2,7 +2,7 @@
 #include <iostream>
 Ovni::Ovni()
 {
-    this->image = "C:/Users/Miguel/Desktop/Naves/Naves/Imagenes/enemigo.png";
+    this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/enemigo.png";
     if(!texture.loadFromFile(image))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{

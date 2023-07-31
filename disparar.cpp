@@ -4,7 +4,7 @@ Disparar::Disparar(sf::Keyboard::Key teclado): tecla(teclado){}
 
 Disparar::Disparar(){
 
-    if (!texture_bala.loadFromFile("C:/Users/Miguel/Desktop/Naves/Naves/Imagenes/misil.png")) {
+    if (!texture_bala.loadFromFile("C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/misil.png")) {
         std::cout << "No existe objeto"<<std::endl;
     }
 
@@ -30,7 +30,6 @@ void Disparar::disparar(sf::Vector2f posicion, float angle) {
 void Disparar::mover() {
     for(size_t i = 0; i <balas.size(); i++){
         balas[i].move(velocities[i]);
-        std::cout <<"- :"<<balas[i].getPosition().x<<std::endl;
     }
 }
 void Disparar::dibujar(sf::RenderWindow& window) {

@@ -12,5 +12,7 @@ public:
     virtual void moverse() {}
     virtual void setObjetivo(sf::Vector2f) {}
     virtual bool withobj() { return NULL;}
+    int getVidas() { return vidas;}
+    int vidas = 4;
 };
 #endif // MYSPRITE_H

@@ -6,6 +6,7 @@
 #include "ovni2.h"
 #include "asteroide.h"
 #include "mysprite.h"
+#include "vida.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
 class Partida
@@ -28,6 +29,7 @@ private:
     std::vector<MySprite*> sprites;
     //Agregar mas cosas
     Disparar disparador;
+    std::vector<Vida*> vidas;
 };
 
 #endif // PARTIDA_H

@@ -13,8 +13,15 @@ void Partida::configurar()
     this->estado = true;
     this->puntaje = 13;
     this->nivel = 1;
+    window.setVerticalSyncEnabled(true);
     window.setFramerateLimit(40);
     sprites.push_back(new Avion());
+
+    //Configurar vidas
+    vidas.push_back(new Vida(sf::Vector2f(50,20)));
+    vidas.push_back(new Vida(sf::Vector2f(100,20)));
+    vidas.push_back(new Vida(sf::Vector2f(150,20)));
+    vidas.push_back(new Vida(sf::Vector2f(200,20)));
 }
 int Partida::enJuego()
 {
@@ -97,7 +104,7 @@ int Partida::enJuego()
             }
         }
 
-        disparador.dibujar(window);
+        disparador.dibujar(window); //Dibujas misiles
         //Mover Meteoros y Naves enemigas
         for(auto i = 1; i<sprites.size();i++){
             sprites[i]->moverse();
@@ -105,6 +112,11 @@ int Partida::enJuego()
         //Renderizar Sprites
         for(auto item: sprites){
             window.draw(*item);
+        }
+
+        //Renderizar vidas
+        for(auto i = 0; i<sprites[0]->getVidas();i++){
+            window.draw(*vidas[i]);
         }
         window.display();
     }

@@ -35,6 +35,7 @@ set(PROJECT_SOURCES
         info2.h
         ovni2.cpp
         ovni2.h
+        vida.h
         ${TS_FILES}
 )
 
