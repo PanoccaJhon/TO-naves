@@ -31,6 +31,23 @@ int Partida::enJuego()
     while(window.isOpen())
     {
         window.clear(sf::Color(55,55,72));
+        //mostrar puntaje
+        sf::Font font;
+        if (font.loadFromFile("D:/aviones/TO-naves-main/Imagenes/28 Days Later.ttf")) {
+            sf::Text puntajeText;
+            puntajeText.setFont(font);
+            puntajeText.setCharacterSize(24);
+            puntajeText.setFillColor(sf::Color::White);
+
+            // Ajustar las coordenadas para colocar el texto en la esquina superior derecha
+            float x = window.getSize().x - 200- puntajeText.getGlobalBounds().width;
+            float y = 10;
+            puntajeText.setPosition(x, y);
+
+            puntajeText.setString("Puntaje: " + std::to_string(puntaje));
+
+            window.draw(puntajeText);
+        }
         //Movimiento de Avion
         if(sprites[0]->movimiento)
             sprites[0]->avanzar();
@@ -91,8 +108,9 @@ int Partida::enJuego()
                 sf::FloatRect asteroideBounds = sprites[j]->getGlobalBounds();
                 if (balaBounds.intersects(asteroideBounds))
                 {
-                    // // falta implementar la puntuación,
+                   
                     colision = true;
+                    puntaje += 10;
                     sprites.erase(sprites.begin() + j);
                     break; // Exit the inner loop since the bullet can't hit multiple objects at once
                 }
