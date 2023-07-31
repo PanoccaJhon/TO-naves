@@ -38,6 +38,39 @@ void Disparar::dibujar(sf::RenderWindow& window) {
         window.draw(bala);
     }
 }
+const std::vector<sf::Sprite>& Disparar::getBalas() const {
+    return balas;
+}
+
+
+// Implementación de la función eliminarBala()
+void Disparar::eliminarBala(size_t indice) {
+    if (indice < balas.size()) {
+        balas.erase(balas.begin() + indice);
+    }
+}
+void Disparar::marcarBalaEliminada(size_t indice)
+{
+    balasEliminadas.push_back(indice);
+}
+
+void Disparar::eliminarBalasMarcadas()
+{
+    // Ordenar el vector de índices de mayor a menor para evitar problemas con los índices
+    std::sort(balasEliminadas.rbegin(), balasEliminadas.rend());
+
+    // Eliminar las balas marcadas del vector de balas
+    for (size_t indice : balasEliminadas)
+    {
+        if (indice < balas.size())
+        {
+            balas.erase(balas.begin() + indice);
+        }
+    }
+
+    // Limpiar el vector de balas marcadas para la próxima iteración
+    balasEliminadas.clear();
+}
 /*
     void mover() {
         for(size_t i = 0; i <balas.size(); i++){
