@@ -122,6 +122,43 @@ int Partida::enJuego()
             }
         }
 
+         // Detección de colisiones entre el avión y los asteroides/UFOs
+        sf::FloatRect avionBounds = sprites[0]->getGlobalBounds();
+        for (size_t i = 1; i < sprites.size(); i++)
+        {
+            sf::FloatRect objetoBounds = sprites[i]->getGlobalBounds();
+            if (avionBounds.intersects(objetoBounds))
+            {
+                // Colisión entre el avión y el objeto (asteroide/uFO)
+                // Restar una vida y eliminar el corazón correspondiente
+                sprites[0]->vidas--;
+                vidas[sprites[0]->vidas]->reducirVida();
+
+                // Eliminar el asteroide/uFO
+                sprites.erase(sprites.begin() + i);
+
+                // Si el avión se queda sin vidas, terminar el juego
+                if (sprites[0]->vidas == 0)
+                {
+                    std::cout << "Game Over" << std::endl;
+                    window.close();
+                }
+
+                break; // Salir del bucle, ya que el avión no puede colisionar con múltiples objetos al mismo tiempo
+            }
+        }
+
+        // ...
+
+        //Renderizar vidas
+        for (auto i = 0; i < sprites[0]->getVidas(); i++)
+        {
+            if (vidas[i]->estaViva())
+            {
+                window.draw(*vidas[i]);
+            }
+        }
+
         disparador.dibujar(window); //Dibujas misiles
         //Mover Meteoros y Naves enemigas
         for(auto i = 1; i<sprites.size();i++){
