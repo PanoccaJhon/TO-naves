@@ -4,10 +4,16 @@
 #include <cmath>
 #include <iostream>
 #include <SFML/Window.hpp>
+#include <QImage>
+#include <QPixmap>
 Avion::Avion()
 {
-    this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/sprite-avion.png";
-    if(!texture.loadFromFile(image))
+    QPixmap pixmap(":/Imagenes/sprite-avion.png");
+    QImage image = pixmap.toImage();
+    QString temFi = "tem_Navy.png";
+    image.save(temFi);
+
+    if(!texture.loadFromFile(temFi.toStdString()))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
         setTexture(texture);

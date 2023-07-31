@@ -1,9 +1,16 @@
 #include "asteroide.h"
 #include <iostream>
+#include <QImage>
+#include <QPixmap>
+
 Asteroide::Asteroide()
 {
-    this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/asteroide.png";
-    if(!texture.loadFromFile(image))
+    QPixmap pixmap(":/Imagenes/asteroide.png");
+    QImage image = pixmap.toImage();
+    QString temFi = "tem_asteroide.png";
+    image.save(temFi);
+
+    if(!texture.loadFromFile(temFi.toStdString()))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
         setTexture(texture);

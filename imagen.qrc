@@ -4,5 +4,11 @@
         <file>Imagenes/Navy.png</file>
         <file>Imagenes/info1.png</file>
         <file>Imagenes/info2.png</file>
+        <file>Imagenes/sprite-avion.png</file>
+        <file>Imagenes/asteroide.png</file>
+        <file>Imagenes/enemigo.png</file>
+        <file>Imagenes/explosion.png</file>
+        <file>Imagenes/meteoros.png</file>
+        <file>Imagenes/misil.png</file>
     </qresource>
 </RCC>
