@@ -70,6 +70,33 @@ int Partida::enJuego()
                 window.close();
         }
         disparador.mover();
+
+        // Detección de colisiones entre las balas y los asteroides/UFOs
+            const std::vector<sf::Sprite>& balas = disparador.getBalas();
+        for (size_t i = 0; i < balas.size(); i++)
+        {
+            sf::FloatRect balaBounds = balas[i].getGlobalBounds();
+            bool colision = false; // Variable para indicar si hay colisión
+
+            // Colisión con asteroides
+            for (size_t j = 1; j < sprites.size(); j++)
+            {
+                sf::FloatRect asteroideBounds = sprites[j]->getGlobalBounds();
+                if (balaBounds.intersects(asteroideBounds))
+                {
+                    // // falta implementar la puntuación,
+                    colision = true;
+                    sprites.erase(sprites.begin() + j);
+                    break; // Exit the inner loop since the bullet can't hit multiple objects at once
+                }
+            }
+
+            if (colision)
+            {
+                disparador.marcarBalaEliminada(i);
+            }
+        }
+
         disparador.dibujar(window);
         //Mover Meteoros y Naves enemigas
         for(auto i = 1; i<sprites.size();i++){
