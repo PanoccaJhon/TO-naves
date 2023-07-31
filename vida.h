@@ -15,9 +15,19 @@ public:
             setPosition(posicion);
         }
     }
+
+ void reducirVida() {
+        viva = false;
+    }
+
+ bool estaViva() const {
+        return viva;
+    }
+
 private:
     std::string image;
     sf::Texture texture;
+    bool viva;
 };
 
 #endif // VIDA_H
