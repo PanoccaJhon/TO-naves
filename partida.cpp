@@ -7,6 +7,7 @@
 #include "info2.h"
 #include "qapplication.h"
 #include <QScreen>
+#include <SFML/Audio.hpp>
 Partida::Partida()
 {
     window.create(sf::VideoMode(1024, 768), "My window");
@@ -47,6 +48,21 @@ int Partida::enJuego()
     sf::Clock clockAste;
     sf::Clock clockOvni;
     sf::Clock clockOvni2;
+    sf::SoundBuffer buffer;
+    // Cargamos un archivo en el buffer
+    if (!buffer.loadFromFile("Sonidos/spaceshot.ogg"))
+    {
+        return EXIT_FAILURE;
+    }
+    sf::Sound sonidoshot;
+    sf::SoundBuffer buffer1;
+    // Cargamos un archivo en el buffer
+    if (!buffer1.loadFromFile("Sonidos/explosion.ogg"))
+    {
+        return EXIT_FAILURE;
+    }
+    sf::Sound sonidoexplosion;
+    // Le asignamos el buffer cargado
     while(window.isOpen())
     {
         window.clear(sf::Color(55,55,72));
@@ -81,6 +97,11 @@ int Partida::enJuego()
 
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
                 //sprites[0]->disparar();
+
+                sonidoshot.setBuffer(buffer);
+                // establecemos el volumen a 80
+                sonidoshot.setVolume(20);
+                sonidoshot.play();
                 disparador.disparar(sprites[0]->getPosition(), sprites[0]->getRotation());
             }
 
@@ -101,7 +122,7 @@ int Partida::enJuego()
         disparador.mover();
 
         // Detección de colisiones entre las balas y los asteroides/UFOs
-            const std::vector<sf::Sprite>& balas = disparador.getBalas();
+        const std::vector<sf::Sprite>& balas = disparador.getBalas();
         for (size_t i = 0; i < balas.size(); i++)
         {
             sf::FloatRect balaBounds = balas[i].getGlobalBounds();
@@ -112,10 +133,13 @@ int Partida::enJuego()
             {
                 sf::FloatRect asteroideBounds = sprites[j]->getGlobalBounds();
                 if (balaBounds.intersects(asteroideBounds))
-               {
+                {
                     // // falta implementar la puntuación,
                     colision = true;
-
+                    sonidoexplosion.setBuffer(buffer);
+                    // establecemos el volumen a 80
+                    sonidoexplosion.setVolume(40);
+                    sonidoexplosion.play();
                     // Cuando un objeto ovni2 es destruido aparece una pantalla con infografia
                     Ovni2* ovni2_ptr = dynamic_cast<Ovni2*>(sprites[j]);
                     if(ovni2_ptr !=nullptr){
@@ -129,7 +153,7 @@ int Partida::enJuego()
                             QCoreApplication::processEvents();
                             sf::sleep(sf::milliseconds(5000));
                             i.hide();
-                             QCoreApplication::processEvents();
+                            QCoreApplication::processEvents();
                         }
                         else
                         {
@@ -138,13 +162,13 @@ int Partida::enJuego()
                             QCoreApplication::processEvents();
                             sf::sleep(sf::milliseconds(5000));
                             i2.hide();
-                             QCoreApplication::processEvents();
+                            QCoreApplication::processEvents();
                         }
 
                     }
                     if(colision){
-                    sprites.erase(sprites.begin() + j);
-                    break; // Exit the inner loop since the bullet can't hit multiple objects at once
+                        sprites.erase(sprites.begin() + j);
+                        break; // Exit the inner loop since the bullet can't hit multiple objects at once
                     }
                 }
             }
@@ -155,7 +179,7 @@ int Partida::enJuego()
             }
         }
 
-         // Detección de colisiones entre el avión y los asteroides/UFOs
+        // Detección de colisiones entre el avión y los asteroides/UFOs
         sf::FloatRect avionBounds = sprites[0]->getGlobalBounds();
         for (size_t i = 1; i < sprites.size(); i++)
         {

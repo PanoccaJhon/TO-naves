@@ -3,10 +3,20 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
-
+#include <SFML/Audio.hpp>
 
 int main(int argc, char *argv[])
 {
+    sf::Music music;
+    if (!music.openFromFile("Sonidos/music.ogg"))
+    {
+        // Manejo de error si no se pudo cargar el archivo de música
+        return 1;
+    }
+    music.setLoop(true);
+    music.setVolume(20);
+    music.play();
+
     QApplication a(argc, argv);
 
     QTranslator translator;
