@@ -10,5 +10,7 @@
         <file>Imagenes/explosion.png</file>
         <file>Imagenes/meteoros.png</file>
         <file>Imagenes/misil.png</file>
+        <file>Fuentes/28 Days Later.ttf</file>
+        <file>Sonidos/music.ogg</file>
     </qresource>
 </RCC>

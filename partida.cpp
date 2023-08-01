@@ -26,6 +26,21 @@ void Partida::configurar()
     vidas.push_back(new Vida(sf::Vector2f(100,20)));
     vidas.push_back(new Vida(sf::Vector2f(150,20)));
     vidas.push_back(new Vida(sf::Vector2f(200,20)));
+
+    if (font.loadFromFile(":/Fuentes/28 Days Later.ttf")) {
+        puntajeText.setFont(font);
+        puntajeText.setCharacterSize(24);
+        puntajeText.setFillColor(sf::Color::White);
+
+        // Ajustar las coordenadas para colocar el texto en la esquina superior derecha
+        float x = window.getSize().x - 200- puntajeText.getGlobalBounds().width;
+        float y = 10;
+        puntajeText.setPosition(x, y);
+
+        puntajeText.setString("Puntaje: " + std::to_string(puntaje));
+
+
+    }
 }
 int Partida::enJuego()
 {
@@ -36,22 +51,8 @@ int Partida::enJuego()
     {
         window.clear(sf::Color(55,55,72));
         //mostrar puntaje
-        sf::Font font;
-        if (font.loadFromFile("D:/aviones/TO-naves-main/Imagenes/28 Days Later.ttf")) {
-            sf::Text puntajeText;
-            puntajeText.setFont(font);
-            puntajeText.setCharacterSize(24);
-            puntajeText.setFillColor(sf::Color::White);
 
-            // Ajustar las coordenadas para colocar el texto en la esquina superior derecha
-            float x = window.getSize().x - 200- puntajeText.getGlobalBounds().width;
-            float y = 10;
-            puntajeText.setPosition(x, y);
 
-            puntajeText.setString("Puntaje: " + std::to_string(puntaje));
-
-            window.draw(puntajeText);
-        }
         //Movimiento de Avion
         if(sprites[0]->movimiento)
             sprites[0]->avanzar();
@@ -205,6 +206,8 @@ int Partida::enJuego()
         for(auto i = 0; i<sprites[0]->getVidas();i++){
             window.draw(*vidas[i]);
         }
+
+        window.draw(puntajeText);
         window.display();
     }
     return puntaje;

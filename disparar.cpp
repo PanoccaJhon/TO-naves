@@ -41,7 +41,7 @@ void Disparar::mover() {
     for(size_t i = 0; i <balas.size(); i++){
 
         balas[i].move(velocities[i]); // contiene la velocidad de la bala
-        std::cout <<"- :"<<balas[i].getPosition().x<<std::endl; // actuliza la posicion de la bala
+
     }
 }
 void Disparar::dibujar(sf::RenderWindow& window) {

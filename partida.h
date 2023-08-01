@@ -30,6 +30,8 @@ private:
     //Agregar mas cosas
     Disparar disparador;
     std::vector<Vida*> vidas;
+    sf::Font font;
+            sf::Text puntajeText;
 };
 
 #endif // PARTIDA_H
