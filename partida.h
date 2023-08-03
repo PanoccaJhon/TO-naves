@@ -31,7 +31,9 @@ private:
     Disparar disparador;
     std::vector<Vida*> vidas;
     sf::Font font;
-            sf::Text puntajeText;
+    sf::Text puntajeText;
+    sf::Text gameOverText; // Texto para mostrar "Game Over"
+    bool gameOver; // Variable para indicar si el juego ha terminado
 };
 
 #endif // PARTIDA_H
