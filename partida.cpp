@@ -27,6 +27,21 @@ void Partida::configurar()
     vidas.push_back(new Vida(sf::Vector2f(100,20)));
     vidas.push_back(new Vida(sf::Vector2f(150,20)));
     vidas.push_back(new Vida(sf::Vector2f(200,20)));
+    
+     //Configurar pantalla game over
+      if (font.loadFromFile("D:/master/TO-naves-master/Fuentes/28 Days Later.ttf"))
+    {
+        gameOverText.setFont(font);
+        gameOverText.setCharacterSize(50);
+        gameOverText.setFillColor(sf::Color::Red);
+        gameOverText.setString("Game Over");
+        gameOverText.setPosition(400, 300); // Ajusta las coordenadas para posicionar el mensaje en el centro de la ventana
+    }
+    else
+    {
+        std::cout << "Error al cargar la fuente." << std::endl;
+    }
+
 
    
 }
@@ -200,7 +215,10 @@ int Partida::enJuego()
                 // Si el avión se queda sin vidas, terminar el juego
                 if (sprites[0]->vidas == 0)
                 {
-                    std::cout << "Game Over" << std::endl;
+                    window.clear(sf::Color::Black); // Limpia la ventana con un color negro antes de dibujar el mensaje
+                    window.draw(gameOverText); // Dibuja el mensaje "Game Over"
+                    window.display(); // Muestra el mensaje en la ventana
+                    sf::sleep(sf::seconds(2)); // Pausa el juego por 2 segundos antes de cerrar la ventana
                     window.close();
                 }
 
