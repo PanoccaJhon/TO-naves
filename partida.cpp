@@ -15,6 +15,7 @@ Partida::Partida()
 
 void Partida::configurar()
 {
+    
     this->estado = true;
     this->puntaje = 13;
     this->nivel = 1;
@@ -47,6 +48,12 @@ void Partida::configurar()
 }
 int Partida::enJuego()
 {
+     // crear fondo de juego
+    sf::Texture backgroundTexture;
+    if (!backgroundTexture.loadFromFile("D:/master/TO-naves-master/Imagenes/fondo-juego.jpg")) {
+    }
+    sf::Sprite backgroundSprite(backgroundTexture);
+    
     sf::Clock clockAste;
     sf::Clock clockOvni;
     sf::Clock clockOvni2;
@@ -68,7 +75,7 @@ int Partida::enJuego()
     while(window.isOpen())
     {
         window.clear(sf::Color(55,55,72));
-        //mostrar puntaje
+        window.draw(backgroundSprite);
 
 
         //Movimiento de Avion
