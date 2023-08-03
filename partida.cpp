@@ -28,20 +28,7 @@ void Partida::configurar()
     vidas.push_back(new Vida(sf::Vector2f(150,20)));
     vidas.push_back(new Vida(sf::Vector2f(200,20)));
 
-    if (font.loadFromFile(":/Fuentes/28 Days Later.ttf")) {
-        puntajeText.setFont(font);
-        puntajeText.setCharacterSize(24);
-        puntajeText.setFillColor(sf::Color::White);
-
-        // Ajustar las coordenadas para colocar el texto en la esquina superior derecha
-        float x = window.getSize().x - 200- puntajeText.getGlobalBounds().width;
-        float y = 10;
-        puntajeText.setPosition(x, y);
-
-        puntajeText.setString("Puntaje: " + std::to_string(puntaje));
-
-
-    }
+   
 }
 int Partida::enJuego()
 {
@@ -90,6 +77,21 @@ int Partida::enJuego()
             sprites.back()->setObjetivo(sprites[0]->getPosition());
             clockOvni2.restart();
         }
+        //mostrar puntaje en la ventana
+         if (font.loadFromFile(":/Fuentes/28 Days Later.ttf")) {
+        puntajeText.setFont(font);
+        puntajeText.setCharacterSize(24);
+        puntajeText.setFillColor(sf::Color::White);
+
+        // Ajustar las coordenadas para colocar el texto en la esquina superior derecha
+        float x = window.getSize().x - 200- puntajeText.getGlobalBounds().width;
+        float y = 10;
+        puntajeText.setPosition(x, y);
+
+        puntajeText.setString("Puntaje: " + std::to_string(puntaje));
+
+
+       }
         //Eventos
         sf::Event event;
         while (window.pollEvent(event))
@@ -134,8 +136,9 @@ int Partida::enJuego()
                 sf::FloatRect asteroideBounds = sprites[j]->getGlobalBounds();
                 if (balaBounds.intersects(asteroideBounds))
                 {
-                    puntaje += 10;
+                   
                     colision = true;
+                    puntaje += 10;
                     sonidoexplosion.setBuffer(buffer);
                     // establecemos el volumen a 80
                     sonidoexplosion.setVolume(40);
