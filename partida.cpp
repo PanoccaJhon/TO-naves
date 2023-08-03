@@ -134,7 +134,7 @@ int Partida::enJuego()
                 sf::FloatRect asteroideBounds = sprites[j]->getGlobalBounds();
                 if (balaBounds.intersects(asteroideBounds))
                 {
-                    // // falta implementar la puntuación,
+                    puntaje += 10;
                     colision = true;
                     sonidoexplosion.setBuffer(buffer);
                     // establecemos el volumen a 80
