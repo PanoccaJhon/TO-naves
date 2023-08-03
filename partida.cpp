@@ -89,7 +89,7 @@ int Partida::enJuego()
                 sf::FloatRect asteroideBounds = sprites[j]->getGlobalBounds();
                 if (balaBounds.intersects(asteroideBounds))
                 {
-                    // // falta implementar la puntuación,
+                    puntaje += 10;
                     colision = true;
 
                     // Cuando un objeto ovni2 es destruido aparece una pantalla con infografia
