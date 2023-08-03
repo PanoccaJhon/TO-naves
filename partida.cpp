@@ -17,7 +17,7 @@ void Partida::configurar()
 {
     
     this->estado = true;
-    this->puntaje = 13;
+    this->puntaje = 0;
     this->nivel = 1;
     window.setVerticalSyncEnabled(true);
     window.setFramerateLimit(40);
