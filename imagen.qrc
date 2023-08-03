@@ -14,5 +14,11 @@
         <file>Sonidos/music.ogg</file>
         <file>Sonidos/explosion.ogg</file>
         <file>Sonidos/spaceshot.ogg</file>
+        <file>res.qrc</file>
+        <file>Imagenes/enemigoInfo.png</file>
+        <file>Imagenes/fondo-juego.jpg</file>
+        <file>Imagenes/vida.png</file>
+        <file>Imagenes/puntuacion.png</file>
+        <file>Imagenes/universo.png</file>
     </qresource>
 </RCC>

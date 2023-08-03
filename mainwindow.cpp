@@ -1,6 +1,10 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "partida.h"
+#include "puntuacion.h"
+#include "qapplication.h"
+#include <QScreen>
+#include <QString>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -29,4 +33,9 @@ void MainWindow::on_btnNewGame_clicked()
     this->setVisible(true);
 
 }
+void MainWindow::on_btnOptions_clicked()
+{
+    puntuacion *i = new puntuacion(0);
+    i->show();
 
+}

@@ -27,6 +27,7 @@ set(PROJECT_SOURCES
         disparar.h disparar.cpp
         mysprite.h
         imagen.qrc
+        res.qrc
         info.cpp
         info.ui
         info.h
@@ -36,6 +37,9 @@ set(PROJECT_SOURCES
         ovni2.cpp
         ovni2.h
         vida.h
+        puntuacion.cpp
+        puntuacion.h
+        puntuacion.ui
         ${TS_FILES}
 )
 

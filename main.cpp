@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
     sf::Music music;
-    if (!music.openFromFile("Sonidos/music.ogg"))
+    if (!music.openFromFile("D:/master/TO_naves_master/Sonidos/music.ogg"))
     {
         // Manejo de error si no se pudo cargar el archivo de música
         return 1;

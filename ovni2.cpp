@@ -1,9 +1,17 @@
 #include "ovni2.h"
 #include <iostream>
+#include <QImage>
+#include <QPixmap>
 Ovni2::Ovni2()
 {
-    this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/enemigoInfo.png";
-    if(!texture.loadFromFile(image))
+
+    QPixmap pixmap(":/Imagenes/enemigoInfo.png");
+    QImage image = pixmap.toImage();
+    QString temFi = "tem_enemigoInfo.png";
+    image.save(temFi);
+    if(!texture.loadFromFile(temFi.toStdString()))
+    //this->image = "C:/Users/jpanocca/Documents/QtProjects/TO-naves/Imagenes/enemigoInfo.png";
+    //if(!texture.loadFromFile(image))
         std::cout<<"Error: imagen -"<< EXIT_FAILURE<<std::endl;
     else{
         setTexture(texture);

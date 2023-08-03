@@ -8,6 +8,7 @@
 #include "qapplication.h"
 #include <QScreen>
 #include <SFML/Audio.hpp>
+
 Partida::Partida()
 {
     window.create(sf::VideoMode(1024, 768), "My window");
@@ -30,7 +31,9 @@ void Partida::configurar()
     vidas.push_back(new Vida(sf::Vector2f(200,20)));
     
      //Configurar pantalla game over
-      if (font.loadFromFile("D:/master/TO-naves-master/Fuentes/28 Days Later.ttf"))
+
+
+      if (font.loadFromFile("D:/master/TO_naves_master/Fuentes/28 Days Later.ttf"))
     {
         gameOverText.setFont(font);
         gameOverText.setCharacterSize(50);
@@ -49,8 +52,15 @@ void Partida::configurar()
 int Partida::enJuego()
 {
      // crear fondo de juego
+
+    QPixmap pixmap(":/Imagenes/fondo-juego.jpg");
+    QImage image = pixmap.toImage();
+    QString temFi = "tem_fondo-juego.jpg";
+    image.save(temFi);
+
     sf::Texture backgroundTexture;
-    if (!backgroundTexture.loadFromFile("D:/master/TO-naves-master/Imagenes/fondo-juego.jpg")) {
+
+    if (!backgroundTexture.loadFromFile(temFi.toStdString())) {
     }
     sf::Sprite backgroundSprite(backgroundTexture);
     
@@ -58,15 +68,16 @@ int Partida::enJuego()
     sf::Clock clockOvni;
     sf::Clock clockOvni2;
     sf::SoundBuffer buffer;
-    // Cargamos un archivo en el buffer
-    if (!buffer.loadFromFile("Sonidos/spaceshot.ogg"))
+    //Cargamos un archivo en el buffer
+
+    if (!buffer.loadFromFile("D:/master/TO_naves_master/Sonidos/spaceshot.ogg"))
     {
         return EXIT_FAILURE;
     }
     sf::Sound sonidoshot;
     sf::SoundBuffer buffer1;
     // Cargamos un archivo en el buffer
-    if (!buffer1.loadFromFile("Sonidos/explosion.ogg"))
+    if (!buffer1.loadFromFile("D:/master/TO_naves_master/Sonidos/explosion.ogg"))
     {
         return EXIT_FAILURE;
     }
@@ -100,7 +111,7 @@ int Partida::enJuego()
             clockOvni2.restart();
         }
         //mostrar puntaje en la ventana
-         if (font.loadFromFile(":/Fuentes/28 Days Later.ttf")) {
+         if (font.loadFromFile("D:/master/TO_naves_master/Fuentes/28 Days Later.ttf")) {
         puntajeText.setFont(font);
         puntajeText.setCharacterSize(24);
         puntajeText.setFillColor(sf::Color::White);

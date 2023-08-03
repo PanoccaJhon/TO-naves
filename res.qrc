@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>Sonidos/explosion.ogg</file>
+        <file>Sonidos/music.ogg</file>
+        <file>Sonidos/spaceshot.ogg</file>
+    </qresource>
+</RCC>

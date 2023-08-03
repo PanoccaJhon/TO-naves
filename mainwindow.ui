@@ -59,7 +59,7 @@
      <item>
       <widget class="QPushButton" name="btnOptions">
        <property name="text">
-        <string>GUARDAR PARTIDA</string>
+        <string>TABLA PUNTUACION</string>
        </property>
       </widget>
      </item>

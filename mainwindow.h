@@ -20,6 +20,8 @@ private slots:
 
     void on_btnNewGame_clicked();
 
+    void on_btnOptions_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
